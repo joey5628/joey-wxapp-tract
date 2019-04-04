@@ -1,0 +1,10 @@
+<view class="goods" bindtap="toDetail">
+    <image class="goods-img" src="{{data.imgUrl}}" mode="widthFix"></image>
+    <view class="goods-desc-wrapper">
+        <view class="goods-name">{{data.name}}</view>
+        <view class="goods-price-wrapper">
+            <view class="goods-price">￥{{data.priceTag}}</view>
+            <view class="btn-add-cart yhicon-plus-circle" catchtap="addCarts"></view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,605 @@
+@font-face {
+    font-family: "iconfont";
+    src: url('https://static.yonghuivip.com/weapp/font/iconfont_20190318.woff?t=1552896194615') format('woff'),
+    url('https://static.yonghuivip.com/weapp/font/iconfont_20190318.woff2?t=1552896194615') format('woff2'),
+    url('https://static.yonghuivip.com/weapp/font/iconfont_20190318.woff?t=1552896194615') format('woff'),
+    url('https://static.yonghuivip.com/weapp/font/iconfont_20190318.ttf?t=1552896194615') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+ */ url('https://static.yonghuivip.com/weapp/font/iconfont_20190318.svg?t=1552896194615#iconfont') format('svg'); /* iOS 4.1- */
+}
+
+[class*='yhicon-']:before {
+    display: inline-block;
+    font-family: 'iconfont';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.yhicon-disable-check:before {
+    content: "\e61b";
+}
+
+.yhicon-about:before {
+    content: "\e601";
+}
+
+.yhicon-activity:before {
+    content: "\e602";
+}
+
+.yhicon-add-to-shopping-cart:before {
+    content: "\e603";
+}
+
+.yhicon-arrow-down:before {
+    content: "\e604";
+}
+
+.yhicon-arrow-left:before {
+    content: "\e605";
+}
+
+.yhicon-arrow-right:before {
+    content: "\e606";
+}
+
+.yhicon-arrow-up:before {
+    content: "\e607";
+}
+
+.yhicon-assortment-active:before {
+    content: "\e608";
+}
+
+.yhicon-assortment-normal:before {
+    content: "\e60b";
+}
+
+.yhicon-back:before {
+    content: "\e60c";
+}
+
+.yhicon-bargain-failure:before {
+    content: "\e60d";
+}
+
+.yhicon-basket-new:before {
+    content: "\e60e";
+}
+
+.yhicon-buying-succeed:before {
+    content: "\e60f";
+}
+
+.yhicon-card:before {
+    content: "\e610";
+}
+
+.yhicon-cart-active:before {
+    content: "\e611";
+}
+
+.yhicon-cart-normal:before {
+    content: "\e612";
+}
+
+.yhicon-cart-scan:before {
+    content: "\e613";
+}
+
+.yhicon-cart-wide:before {
+    content: "\e614";
+}
+
+.yhicon-cart:before {
+    content: "\e615";
+}
+
+.yhicon-check-circle:before {
+    content: "\e616";
+}
+
+.yhicon-city-selected:before {
+    content: "\e617";
+}
+
+.yhicon-classity-active:before {
+    content: "\e618";
+}
+
+.yhicon-classity-big:before {
+    content: "\e619";
+}
+
+.yhicon-classity-normal:before {
+    content: "\e61a";
+}
+
+.yhicon-classity-small:before {
+    content: "\e61c";
+}
+
+.yhicon-close-eye:before {
+    content: "\e61d";
+}
+
+.yhicon-close:before {
+    content: "\e61e";
+}
+
+.yhicon-completed:before {
+    content: "\e61f";
+}
+
+.yhicon-coupon:before {
+    content: "\e620";
+}
+
+.yhicon-cycle-close:before {
+    content: "\e621";
+}
+
+.yhicon-delete:before {
+    content: "\e622";
+}
+
+.yhicon-deliver:before {
+    content: "\e623";
+}
+
+.yhicon-diancan-cart:before {
+    content: "\e624";
+}
+
+.yhicon-diancan:before {
+    content: "\e625";
+}
+
+.yhicon-dispatching:before {
+    content: "\e626";
+}
+
+.yhicon-download-app:before {
+    content: "\e628";
+}
+
+.yhicon-download:before {
+    content: "\e629";
+}
+
+.yhicon-downloader:before {
+    content: "\e62a";
+}
+
+.yhicon-face:before {
+    content: "\e62b";
+}
+
+.yhicon-feedback:before {
+    content: "\e62c";
+}
+
+.yhicon-gift-card:before {
+    content: "\e62d";
+}
+
+.yhicon-gift-share:before {
+    content: "\e62e";
+}
+
+.yhicon-gift:before {
+    content: "\e62f";
+}
+
+.yhicon-global-close:before {
+    content: "\e630";
+}
+
+.yhicon-goods:before {
+    content: "\e631";
+}
+
+.yhicon-grab-over:before {
+    content: "\e632";
+}
+
+.yhicon-group:before {
+    content: "\e633";
+}
+
+.yhicon-help:before {
+    content: "\e634";
+}
+
+.yhicon-home-active:before {
+    content: "\e635";
+}
+
+.yhicon-home-normal:before {
+    content: "\e636";
+}
+
+.yhicon-home:before {
+    content: "\e637";
+}
+
+.yhicon-horn:before {
+    content: "\e638";
+}
+
+.yhicon-index:before {
+    content: "\e639";
+}
+
+.yhicon-inform:before {
+    content: "\e63a";
+}
+
+.yhicon-invitation:before {
+    content: "\e63b";
+}
+
+.yhicon-iphone:before {
+    content: "\e63c";
+}
+
+.yhicon-loaction:before {
+    content: "\e63d";
+}
+
+.yhicon-location-small:before {
+    content: "\e63e";
+}
+
+.yhicon-logistics:before {
+    content: "\e63f";
+}
+
+.yhicon-min:before {
+    content: "\e640";
+}
+
+.yhicon-mine:before {
+    content: "\e641";
+}
+
+.yhicon-minus-circle:before {
+    content: "\e642";
+}
+
+.yhicon-minus-outline:before {
+    content: "\e643";
+}
+
+.yhicon-minus:before {
+    content: "\e646";
+}
+
+.yhicon-money:before {
+    content: "\e647";
+}
+
+.yhicon-open-eye:before {
+    content: "\e648";
+}
+
+.yhicon-order-scan:before {
+    content: "\e649";
+}
+
+.yhicon-order:before {
+    content: "\e64a";
+}
+
+.yhicon-password:before {
+    content: "\e64b";
+}
+
+.yhicon-pay-wechat:before {
+    content: "\e64c";
+}
+
+.yhicon-pay:before {
+    content: "\e64d";
+}
+
+.yhicon-peisong:before {
+    content: "\e64e";
+}
+
+.yhicon-peisongdaojia:before {
+    content: "\e64f";
+}
+
+.yhicon-pen:before {
+    content: "\e650";
+}
+
+.yhicon-phone:before {
+    content: "\e651";
+}
+
+.yhicon-pick:before {
+    content: "\e652";
+}
+
+.yhicon-plus-circle:before {
+    content: "\e653";
+}
+
+.yhicon-plus-outline:before {
+    content: "\e654";
+}
+
+.yhicon-plus:before {
+    content: "\e655";
+}
+
+.yhicon-position:before {
+    content: "\e656";
+}
+
+.yhicon-pull-new-code:before {
+    content: "\e657";
+}
+
+.yhicon-pull-new-user:before {
+    content: "\e658";
+}
+
+.yhicon-pull-new:before {
+    content: "\e659";
+}
+
+.yhicon-receive:before {
+    content: "\e65a";
+}
+
+.yhicon-recommend:before {
+    content: "\e65b";
+}
+
+.yhicon-refund:before {
+    content: "\e65c";
+}
+
+.yhicon-reminder:before {
+    content: "\e65d";
+}
+
+.yhicon-return-new:before {
+    content: "\e65e";
+}
+
+.yhicon-rule:before {
+    content: "\e65f";
+}
+
+.yhicon-santiaogang:before {
+    content: "\e660";
+}
+
+.yhicon-scan-code:before {
+    content: "\e661";
+}
+
+.yhicon-search:before {
+    content: "\e662";
+}
+
+.yhicon-security-code:before {
+    content: "\e663";
+}
+
+.yhicon-select-active-orange:before {
+    content: "\e664";
+}
+
+.yhicon-select-disable:before {
+    content: "\e665";
+}
+
+.yhicon-select-normal:before {
+    content: "\e666";
+}
+
+.yhicon-Select-time:before {
+    content: "\e667";
+}
+
+.yhicon-select:before {
+    content: "\e668";
+}
+
+.yhicon-share-new:before {
+    content: "\e669";
+}
+
+.yhicon-share:before {
+    content: "\e66a";
+}
+
+.yhicon-shopping-basket:before {
+    content: "\e66b";
+}
+
+.yhicon-shopping-cart:before {
+    content: "\e66c";
+}
+
+.yhicon-spread:before {
+    content: "\e66d";
+}
+
+.yhicon-store-big:before {
+    content: "\e66e";
+}
+
+.yhicon-store:before {
+    content: "\e66f";
+}
+
+.yhicon-stowing-rampl:before {
+    content: "\e670";
+}
+
+.yhicon-switch:before {
+    content: "\e671";
+}
+
+.yhicon-tag:before {
+    content: "\e672";
+}
+
+.yhicon-telephone:before {
+    content: "\e673";
+}
+
+.yhicon-time:before {
+    content: "\e674";
+}
+
+.yhicon-top:before {
+    content: "\e675";
+}
+
+.yhicon-truck:before {
+    content: "\e676";
+}
+
+.yhicon-unpayment:before {
+    content: "\e677";
+}
+
+.yhicon-unreceive:before {
+    content: "\e678";
+}
+
+.yhicon-user-active:before {
+    content: "\e679";
+}
+
+.yhicon-user-name:before {
+    content: "\e67a";
+}
+
+.yhicon-user-normal:before {
+    content: "\e67b";
+}
+
+.yhicon-user:before {
+    content: "\e67c";
+}
+
+.yhicon-version-number:before {
+    content: "\e67d";
+}
+
+.yhicon-waimai-cart:before {
+    content: "\e67e";
+}
+
+.yhicon-waimai:before {
+    content: "\e67f";
+}
+
+.yhicon-wallet:before {
+    content: "\e680";
+}
+
+.yhicon-warning:before {
+    content: "\e681";
+}
+
+.yhicon-warnning_full:before {
+    content: "\e682";
+}
+
+.yhicon-wechat-pay:before {
+    content: "\e683";
+}
+
+.yhicon-wechat:before {
+    content: "\e684";
+}
+
+.yhicon-wifi:before {
+    content: "\e685";
+}
+
+.yhicon-xaidan:before {
+    content: "\e686";
+}
+
+.yhicon-xigou:before {
+    content: "\e687";
+}
+
+.yhicon-ziti:before {
+    content: "\e688";
+}
+
+.yhicon-crown:before {
+    content: "\e689";
+}
+
+.yhicon-praise:before {
+    content: "\e68a";
+}
+
+.yhicon-stamp:before {
+    content: "\e68b";
+}
+
+.yhicon-happy:before {
+    content: "\e68c";
+}
+
+.yhicon-normal:before {
+    content: "\e68d";
+}
+
+.yhicon-angry:before {
+    content: "\e68e";
+}
+
+.yhicon-Notreceivinggoods:before {
+    content: "\e68f";
+}
+
+.yhicon-Tobepaid:before {
+    content: "\e690";
+}
+
+.yhicon-un-evaluate:before {
+    content: "\e691";
+}
+
+.yhicon-md-in-Choice:before {
+    content: "\e692";
+}
+
+.yhicon-md-n-Choice:before {
+    content: "\e693";
+}
+
+.yhicon-select-fill:before {
+    content: "\e694";
+}
+
+.yhicon-select-line:before {
+    content: "\e695";
+}
+
+.yhicon-chat-icon:before {
+    content: "\e609";
+}

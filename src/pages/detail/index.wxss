@@ -1,0 +1,39 @@
+page {
+    height: 100%;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+.container .main {
+    flex: 1;
+}
+.container .main .banner-img {
+    width: 100%;
+}
+.bottom-bar {
+    height: 112rpx;
+    border-top: 2rpx solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bottom-bar .buy-count {
+    font-size: 26rpx;
+    color: #FD7926;
+    margin-left: 30rpx;
+}
+.bottom-bar .btn-buy {
+    margin-right: 30rpx;
+    width:572rpx;
+    height:80rpx;
+    background:linear-gradient(67deg,rgba(255,190,128,1) 0%,rgba(253,118,34,1) 100%);
+    border-radius:40rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}

@@ -1,0 +1,44 @@
+.goods {
+    padding: 40rpx;
+    display: flex;
+    flex-direction: row;
+}
+.goods .goods-img {
+    width: 240rpx;
+    height: 240rpx;
+    background-color: #aaaaaa;
+}
+.goods .goods-desc-wrapper {
+    flex: 1;
+    margin-left: 20rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.goods .goods-desc-wrapper .goods-name {
+    font-size: 32rpx;
+    line-height: 44rpx;
+    color: #333;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:2;
+}
+.goods .goods-desc-wrapper .goods-price-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.goods .goods-desc-wrapper .goods-price-wrapper .goods-price {
+    font-size: 32rpx;
+    line-height: 44rpx;
+    color: #FC4916;
+}
+.goods .goods-desc-wrapper .goods-price-wrapper .btn-add-cart {
+    width: 44rpx;
+    height: 44rpx;
+    color: #FD7622;
+}
+.yhicon-plus-circle:before {
+    content: "\e653";
+}

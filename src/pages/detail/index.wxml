@@ -1,0 +1,12 @@
+<view class="container">
+    <scroll-view class="main"
+                 scroll-y="true">
+        <image src="{{detail.imgUrl}}" mode="aspectFit" class="banner-img"></image>
+        <view class="title">{{detail.name}}</view>
+        <view class="price">￥{{detail.price}}</view>
+    </scroll-view>
+    <view class="bottom-bar">
+        <text class="buy-count">{{buyCount}}</text>
+        <view class="btn-buy" bindtap="addToCarts">加入购物车</view>
+    </view>
+</view>

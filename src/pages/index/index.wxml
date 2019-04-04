@@ -1,0 +1,12 @@
+<view class="container">
+    <scroll-view class="list-wrapper" scroll-y>
+        <goods wx:for="{{goods}}"
+               wx:for-index="index"
+               wx:key="index"
+               wx:for-item="item"
+               data="{{item}}"
+               index="{{index}}"
+               bind:toDetail="toDetail"
+        ></goods>
+    </scroll-view>
+</view>
