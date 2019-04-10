@@ -24,9 +24,9 @@ class Tracker extends Events {
      * @param trackConfig
      * @returns {{name, params}}
      */
-    handlerData(trackInfo, page, trackConfig) {
+    handleData(trackInfo, page, trackConfig) {
         const { action, args } = trackInfo
-        const { index = -1 } = args
+        // const { index = -1 } = args
 
         if (action && trackConfig && trackConfig[action]) {
             const { name, params } = trackConfig[action]
@@ -51,12 +51,18 @@ class Tracker extends Events {
 
                     arr.forEach((item, idx) => {
                         if (idx > 0) {
-                            if (item.indexOf('$INDEX') > 0) {
-                                let itemKey = item.replace('[$INDEX]', '')
-                                if (index > -1) {
-                                    dataSource = dataSource[itemKey][index]
-                                } else {
-                                    console.warn('Tracker ')
+                            const regArr = item.match(/(\S*)\[\$(\S*)\]/)
+                            if (regArr && regArr.length >= 3) {
+                                const itemKey = regArr[1]
+                                const idxStr = regArr[2]
+
+                                if (itemKey) {
+                                    dataSource = dataSource[itemKey]
+                                    if (idxStr && args[idxStr] !== undefined) {
+                                        dataSource = dataSource[args[idxStr]]
+                                    } else {
+                                        console.error('Tracker args中缺乏配置的[$Index]参数')
+                                    }
                                 }
                             } else {
                                 dataSource = dataSource[item]
@@ -106,7 +112,7 @@ class Tracker extends Events {
     addTrackListener() {
         console.log('Tracker onTrack')
         this.on('track', (trackInfo = {}) => {
-            this.tracking(this.handlerData(trackInfo, this.page, this.trackConfig))
+            this.tracking(this.handleData(trackInfo, this.page, this.trackConfig))
         })
     }
 

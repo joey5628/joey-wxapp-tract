@@ -14,7 +14,8 @@ Component({
             }
         },
 
-        index: Number
+        index: Number,
+        floorIndex: Number
     },
 
     lifetimes: {
@@ -41,13 +42,14 @@ Component({
         },
 
         addCarts(event) {
-            const { data, index } = this.data
+            const { data, index, floorIndex } = this.data
             Tracker.triggerTrack({
                 action: 'addToCarts',
                 args: {
                     ...data,
                     moduleName: 'Goods',
                     index,
+                    floorIndex
                 }
             })
         },

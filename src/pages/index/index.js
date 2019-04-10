@@ -9,31 +9,62 @@ createPage({
     data: {
         storeId: '9D43',
         storeName: '永辉生活-新华路店',
-        goods: [{
-            id: 'CB001',
-            name:"CB001-套袋红富士套袋红富士套袋红富士套袋红富士",
-            priceTag: '31.8',
-            imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
-        },{
-            id: 'CB002',
-            name:"CB002-红心火龙果",
-            priceTag: '12.8',
-            imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
-        },{
-            id: 'CB003',
-            name:"CB003-四川安岳柠檬",
-            priceTag: '20',
-            imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
-        },{
-            id: 'CB004',
-            name:"CB004-千禧圣女果",
-            priceTag: '190',
-            imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
-        },{
-            id: 'CB005',
-            name:"CB005-海南青木瓜",
-            priceTag: '122',
-            imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+        floors: [{
+            type: 'skupos',
+            goods: [{
+                id: 'CB001',
+                name:"CB001-套袋红富士套袋红富士套袋红富士套袋红富士",
+                priceTag: '31.8',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            },{
+                id: 'CB002',
+                name:"CB002-红心火龙果",
+                priceTag: '12.8',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            },{
+                id: 'CB003',
+                name:"CB003-四川安岳柠檬",
+                priceTag: '20',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            },{
+                id: 'CB004',
+                name:"CB004-千禧圣女果",
+                priceTag: '190',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            },{
+                id: 'CB005',
+                name:"CB005-海南青木瓜",
+                priceTag: '122',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            }]
+        }, {
+            type: 'banner',
+            goods: [{
+                id: 'CB001',
+                name:"CB001-套袋红富士套袋红富士套袋红富士套袋红富士",
+                priceTag: '31.8',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            },{
+                id: 'CB002',
+                name:"CB002-红心火龙果",
+                priceTag: '12.8',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            },{
+                id: 'CB003',
+                name:"CB003-四川安岳柠檬",
+                priceTag: '20',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            },{
+                id: 'CB004',
+                name:"CB004-千禧圣女果",
+                priceTag: '190',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            },{
+                id: 'CB005',
+                name:"CB005-海南青木瓜",
+                priceTag: '122',
+                imgUrl: 'https://image.yonghuivip.com/image/1459841184250dfaaeed694eae97c85b434d102c0fe199eb9c461?imageMogr2/thumbnail/120x/'
+            }]
         }]
     },
 
