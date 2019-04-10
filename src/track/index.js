@@ -26,7 +26,6 @@ class Tracker extends Events {
      */
     handleData(trackInfo, page, trackConfig) {
         const { action, args } = trackInfo
-        // const { index = -1 } = args
 
         if (action && trackConfig && trackConfig[action]) {
             const { name, params } = trackConfig[action]
@@ -112,7 +111,7 @@ class Tracker extends Events {
     addTrackListener() {
         console.log('Tracker onTrack')
         this.on('track', (trackInfo = {}) => {
-            this.tracking(this.handleData(trackInfo, this.page, this.trackConfig))
+            this.report(this.handleData(trackInfo, this.page, this.trackConfig))
         })
     }
 
@@ -120,7 +119,7 @@ class Tracker extends Events {
      * 触发埋点
      * @param trackInfo
      */
-    triggerTrack(trackInfo = {}) {
+    track(trackInfo = {}) {
         this.trigger('track', trackInfo)
     }
 
@@ -141,17 +140,17 @@ class Tracker extends Events {
             const prePageName = getPrevPage() ? getPrevPage().$PageName : ''
             this.page.$PageName = pageName
             this.showTime = +new Date()
-            const trackParams = this.page.$trackParams || {}
+            // const trackParams = this.page.$trackParams || {}
 
             defaultParams = {
                 ...defaultParams,
                 yh_pageName: pageName,
                 yh_prePageName: prePageName,
-                ...trackParams
+                // ...trackParams
             }
-            this.tracking({
+            this.report({
                 name: 'yh_pageView',
-                params: trackParams
+                params: defaultParams
             })
         }
     }
@@ -163,9 +162,8 @@ class Tracker extends Events {
         const showTime = this.showTime
         const time = +new Date()
         const duration = time - showTime
-        // const trackParams = this.page.$trackParams || {}
 
-        this.tracking({
+        this.report({
             name: 'yh_pageLeave',
             params: {
                 yh_duration: duration
@@ -176,16 +174,14 @@ class Tracker extends Events {
 
     /**
      * 生成最终的埋点数据
+     * 也可以直接调用
      * @param data
      */
-    tracking(data = {}) {
+    report(data = {}) {
         let { name, params } = data;
 
-        params = Object.assign(
-            defaultParams,
-            params
-        )
-        console.log('Tracker tracking:', { name, params})
+        params = Object.assign({}, defaultParams, params)
+        console.log('Tracker report:', { name, params})
         // console.log('To do the report track data')
     }
 

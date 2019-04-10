@@ -1,4 +1,5 @@
 import { createPage } from '../../track/page'
+import Tracker from '../../track/index'
 
 createPage({
     data: {
@@ -20,6 +21,9 @@ createPage({
     addToCarts(event) {
         this.setData({
             buyCount: ++this.data.buyCount
+        })
+        Tracker.track({
+            action: 'addToCarts'
         })
     }
 

@@ -43,7 +43,7 @@ Component({
 
         addCarts(event) {
             const { data, index, floorIndex } = this.data
-            Tracker.triggerTrack({
+            Tracker.track({
                 action: 'addToCarts',
                 args: {
                     ...data,
