@@ -4,7 +4,7 @@
 基于以上原因，配置化埋点考虑的是在需要埋点的地方调用埋点，然后通过配置表取到对应的事件配置，在转化为真实的埋点数据进行上报。
 
 ## 使用方法
-### 1、引入文件创建页面
+### 引入文件创建页面
 ```javascript
 // 埋点SDK
 import Tracker from '../../track/index'
@@ -15,7 +15,7 @@ createPage({
 //...
 })
 ```
-### 2、添加配置文件
+### 添加配置文件
 需要在页面同级目录下创建trackConfig.js配置文件  
 需要给有埋点的页面添加配置文件，配置文件包含页面名（pageName）和事件对象，
 事件对象包含埋点事件名和参数配置  
@@ -64,7 +64,7 @@ yh_productId: '{page.data.floors[$floorIndex].goods[$index].id}',
 ```javascript
 uId: '{APP.globalData.userInfo.uId}',
 ```
-#### 触发埋点事件
+### 触发埋点事件
 ```javascript
 const { data, index, floorIndex } = this.data
 Tracker.track({
