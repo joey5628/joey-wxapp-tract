@@ -35,10 +35,12 @@ export default {
             yh_elementName: '加入购物车',
             yh_moduleName: '{args.moduleName}',
             yh_elementIndexNum: '{args.index}',
-            yh_productId: '{page.data.floors[$floorIndex].goods[$index].id}',
-            yh_productName: '{page.data.floors[$floorIndex].goods[$index].name}',
+            yh_productId: '{page.data.floors[args.floorIndex].goods[args.index].id}',
+            yh_productName: '{page.data.floors[args.floorIndex].goods[args.index].name}',
             abVersion: '{page.abVersion}',
             storeId: '{page.data.storeId}',
+            titleId: '{page.data.titles[page.data.titleIdx].id}',
+            titleName: '{page.data.titles[page.data.titleIdx].name}',
             uId: '{APP.globalData.userInfo.uId}',
         }
     }
@@ -57,13 +59,18 @@ yh_moduleName: '{args.moduleName}',
 ```
 ##### 3、从page对象中读取的数据
 ```javascript
-// [$index] 代表数组的索引，对应的值会用track方法的args中读取同名属性值
-yh_productId: '{page.data.floors[$floorIndex].goods[$index].id}',
+// [args.index] 嵌套引用，代表从args中获取数组的索引值
+yh_productId: '{page.data.floors[args.floorIndex].goods[args.index].id}',
 ```
 ##### 4、从APP对象中读取数据
 ```javascript
 uId: '{APP.globalData.userInfo.uId}',
 ```
+#### 支持嵌套配置属性
+```javascript
+
+```
+
 ### 触发埋点事件
 ```javascript
 const { data, index, floorIndex } = this.data
