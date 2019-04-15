@@ -9,6 +9,17 @@ createPage({
     data: {
         storeId: '9D43',
         storeName: '永辉生活-新华路店',
+        titleIdx: 1,
+        titles: [{
+            id: 1,
+            name: '蔬菜类'
+        },{
+            id: 2,
+            name: '水果类'
+        },{
+            id: 3,
+            name: '禽肉类'
+        }],
         floors: [{
             type: 'skupos',
             goods: [{

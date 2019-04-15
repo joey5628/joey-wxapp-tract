@@ -4,6 +4,7 @@
  */
 import Events from './events'
 import { getActivePage, getPrevPage } from "./utils";
+import { handleData } from './dataProcess'
 
 let defaultParams = {}
 
@@ -24,7 +25,7 @@ class Tracker extends Events {
      * @param trackConfig
      * @returns {{name, params}}
      */
-    handleData(trackInfo, page, trackConfig) {
+    /*handleData(trackInfo, page, trackConfig) {
         const { action, args } = trackInfo
 
         if (action && trackConfig && trackConfig[action]) {
@@ -78,7 +79,7 @@ class Tracker extends Events {
                 params: newPrams
             }
         }
-    }
+    }*/
 
     /**
      * 设置默认数据
@@ -99,7 +100,7 @@ class Tracker extends Events {
             arr[arr.length - 1] = 'trackConfig'
             const path = arr.join('/')
             // 这里需要相对路径
-            return require(`../../${path}`).default;
+            return require(`../../${path}`).default
         } catch(err) {
             console.log('err:', err)
         }
@@ -111,7 +112,7 @@ class Tracker extends Events {
     addTrackListener() {
         console.log('Tracker onTrack')
         this.on('track', (trackInfo = {}) => {
-            this.report(this.handleData(trackInfo, this.page, this.trackConfig))
+            this.report(handleData(trackInfo, this.page, this.trackConfig))
         })
     }
 
