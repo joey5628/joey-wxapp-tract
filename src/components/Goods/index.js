@@ -1,6 +1,7 @@
 import Tracker from '../../track/index'
+import { createComponent } from '../../track/component'
 
-Component({
+createComponent({
 
     properties: {
         data: {
@@ -28,11 +29,7 @@ Component({
     },
 
     pageLifetimes: {
-        show() {
-        },
 
-        hide() {
-        }
     },
 
     methods: {
@@ -42,16 +39,17 @@ Component({
         },
 
         addCarts(event) {
+            console.log(1111)
             const { data, index, floorIndex } = this.data
-            Tracker.track({
-                action: 'addToCarts',
-                args: {
-                    ...data,
-                    moduleName: 'Goods',
-                    index,
-                    floorIndex
-                }
-            })
+            // Tracker.track({
+            //     action: 'addToCarts',
+            //     args: {
+            //         ...data,
+            //         moduleName: 'Goods',
+            //         index,
+            //         floorIndex
+            //     }
+            // })
         },
 
     }

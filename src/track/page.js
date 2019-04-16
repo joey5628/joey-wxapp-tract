@@ -3,10 +3,18 @@
  * @Date 2019/4/1
  * 创建createPage,重写页面已有的方法
  */
-const globalVarPage = Page;
 import Tracker from './index'
+import { getTrackConfig } from './utils'
+
+const globalVarPage = Page;
+
 
 const pageMethods = [{
+    methodName: 'onLoad',
+    afterFn: function _f() {
+        Tracker.init()
+    },
+},{
     methodName: 'onShow',
     beforeFn: function _f() {
         Tracker.pageShow()
@@ -22,6 +30,7 @@ const pageMethods = [{
         Tracker.pageHide()
     }
 }]
+
 
 const addMethodOnPage = (target) => {
     pageMethods.forEach(v => {
@@ -44,4 +53,10 @@ const addMethodOnPage = (target) => {
     return target
 }
 
-export const createPage = page => globalVarPage(addMethodOnPage(page))
+const addTrackOnPage = (target) => {
+    console.log('target:', target)
+
+    return target
+}
+
+export const createPage = page => globalVarPage(addMethodOnPage(addTrackOnPage(page)))

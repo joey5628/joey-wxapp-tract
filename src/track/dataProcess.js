@@ -6,6 +6,10 @@
 export function handleData(trackInfo, page, trackConfig) {
     const { action, args } = trackInfo
 
+    if(!trackConfig || !trackConfig[action]) {
+        return;
+    }
+
     const { name, params } = trackConfig[action]
     let newPrams = {}
 

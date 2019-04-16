@@ -6,7 +6,7 @@
         <view class="price">￥{{detail.price}}</view>
     </scroll-view>
     <view class="bottom-bar">
-        <text class="buy-count">{{buyCount}}</text>
-        <view class="btn-buy" bindtap="addToCarts">加入购物车</view>
+        <text class="buy-count" bindtap="clickBuyCount">{{buyCount}}</text>
+        <view class="btn-buy" bindtap="addToCarts" data-track="{{ { ...detail } }}">加入购物车</view>
     </view>
 </view>

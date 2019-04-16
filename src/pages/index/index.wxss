@@ -4,3 +4,10 @@
 .list-wrapper {
 
 }
+.btn-detail {
+    width: 200rpx;
+    height: 50rpx;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid skyblue;
+}

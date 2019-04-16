@@ -1,4 +1,7 @@
 <view class="container">
+    <View class="btn-detail" bindtap="toDetail">
+        去详情页
+    </View>
     <scroll-view class="list-wrapper" scroll-y>
         <view class="floor {{floor.type === 'banner' ? 'banner' : 'skupos'}}"
             wx:for="{{floors}}"

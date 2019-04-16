@@ -3,7 +3,7 @@
  * @Date 2019/4/1
  */
 import Events from './events'
-import { getActivePage, getPrevPage } from "./utils";
+import { getActivePage, getPrevPage, isFunction } from "./utils";
 import { handleData } from './dataProcess'
 
 let defaultParams = {}
@@ -13,73 +13,8 @@ class Tracker extends Events {
     constructor() {
         super()
         this.instance = null
-        this.page = null
-        this.trackConfig = null
         this.showTime = 0
     }
-
-    /**
-     * 解析埋点配置文件，转变为需要上报的数据
-     * @param trackInfo
-     * @param page
-     * @param trackConfig
-     * @returns {{name, params}}
-     */
-    /*handleData(trackInfo, page, trackConfig) {
-        const { action, args } = trackInfo
-
-        if (action && trackConfig && trackConfig[action]) {
-            const { name, params } = trackConfig[action]
-            let newPrams = {}
-
-            for(let key in params) {
-                let value  = params[key] || ''
-
-                if (/^{[\S]*}$/.test(value)) {
-                    value = value.replace(/^{|}$/g, '')
-                    let dataSource;
-                    if (value.indexOf('page.') === 0) {
-                        dataSource = page
-                    } else if (value.indexOf('args.') === 0) {
-                        dataSource = args
-                    } else {
-                        // APP引用不能提升
-                        const APP = getApp()
-                        dataSource = APP
-                    }
-                    let arr = value.split('.')
-
-                    arr.forEach((item, idx) => {
-                        if (idx > 0) {
-                            const regArr = item.match(/(\S*)\[\$(\S*)\]/)
-                            if (regArr && regArr.length >= 3) {
-                                const itemKey = regArr[1]
-                                const idxStr = regArr[2]
-
-                                if (itemKey) {
-                                    dataSource = dataSource[itemKey]
-                                    if (idxStr && args[idxStr] !== undefined) {
-                                        dataSource = dataSource[args[idxStr]]
-                                    } else {
-                                        console.error('Tracker args中缺乏配置的[$Index]参数')
-                                    }
-                                }
-                            } else {
-                                dataSource = dataSource[item]
-                            }
-                        }
-                    })
-                    newPrams[key] = dataSource
-                } else {
-                    newPrams[key] = value
-                }
-            }
-            return {
-                name,
-                params: newPrams
-            }
-        }
-    }*/
 
     /**
      * 设置默认数据
@@ -109,10 +44,9 @@ class Tracker extends Events {
     /**
      * 添加埋点监听
      */
-    addTrackListener() {
-        console.log('Tracker onTrack')
+    addTrackListener(page, trackConfig) {
         this.on('track', (trackInfo = {}) => {
-            this.report(handleData(trackInfo, this.page, this.trackConfig))
+            this.report(handleData(trackInfo, page, trackConfig))
         })
     }
 
@@ -125,29 +59,65 @@ class Tracker extends Events {
     }
 
     /**
+     * 根据配置表给页面中的方法自动加上埋点事件
+     */
+    addTrackOnPageMethod(page, trackConfig) {
+        const that = this
+        const methodNames = Object.keys(trackConfig)
+        methodNames.forEach(method => {
+            if(method !== 'pageName' && page[method] && isFunction(page[method])) {
+                const config = trackConfig[method]
+                if (config.auto === false) {
+                    return;
+                }
+                const originFunc = page[method]
+                page[method] = function _fn(...args) {
+                    const event = args[0]
+                    let trackInfo = event && event.currentTarget && event.currentTarget.dataset ?
+                        event.currentTarget.dataset.track : null
+                    originFunc.apply(this, args)
+                    trackInfo = {
+                        action: method,
+                        args: {
+                            ...trackInfo
+                        }
+                    }
+                    that.track(trackInfo)
+                }
+            }
+        })
+    }
+
+    init() {
+        const page = getActivePage()
+        if (page && page.route) {
+            const trackConfig = this.getTrackConfig(page.route)
+            if (trackConfig) {
+                this.addTrackOnPageMethod(page, trackConfig)
+            }
+        }
+    }
+
+    /**
      * 页面显示时初始化数据和上报pageView埋点
      */
     pageShow() {
         const page = getActivePage()
         if (page && page.route) {
-            this.page = page
-            this.trackConfig = this.getTrackConfig(this.page.route)
+            const trackConfig = this.getTrackConfig(page.route)
             let pageName = ''
-            if (this.trackConfig) {
-                pageName = this.trackConfig.pageName
-                this.addTrackListener()
+            if (trackConfig) {
+                pageName = trackConfig.pageName
+                this.addTrackListener(page, trackConfig)
             }
-
+            page.$PageName = pageName
             const prePageName = getPrevPage() ? getPrevPage().$PageName : ''
-            this.page.$PageName = pageName
             this.showTime = +new Date()
-            // const trackParams = this.page.$trackParams || {}
 
             defaultParams = {
                 ...defaultParams,
                 yh_pageName: pageName,
                 yh_prePageName: prePageName,
-                // ...trackParams
             }
             this.report({
                 name: 'yh_pageView',
